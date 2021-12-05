@@ -67,9 +67,9 @@ public class Token extends UnicastRemoteObject implements TokenInterface {
             // int portNumber = 8000 + no;
             Registry reg = LocateRegistry.createRegistry(8082);
             reg.rebind("tokenServer", new Token());
-            System.out.println("Token server is running..");
+            System.out.println("Token server is running now..");
         } catch (Exception e) {
-            System.out.println("Exception" + e);
+            System.out.println("Exception: " + e);
         }
     }
 }

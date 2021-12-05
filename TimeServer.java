@@ -12,7 +12,7 @@ public class TimeServer extends UnicastRemoteObject implements getTime {
 
     public long getSystemTime() {
         long time = Instant.now().toEpochMilli();
-        System.out.println("Client request received at time "+ time);
+        System.out.println("We received client request at time: "+ time);
         return time;
     }
 
@@ -20,7 +20,7 @@ public class TimeServer extends UnicastRemoteObject implements getTime {
         try {
             Registry reg = LocateRegistry.createRegistry(8080);
             reg.rebind("timeServer", new TimeServer());
-            System.out.println("Time Server is running..");
+            System.out.println("Time Server is running now..");
         } catch (Exception e) {
             e.printStackTrace();
         }

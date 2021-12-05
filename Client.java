@@ -40,14 +40,14 @@ public class Client {
                 System.out.print("Enter the amount: ");
                 amount = sc.nextDouble();
                 obj_bal.AddUser(acc_no, password, amount);
-                System.out.println("User Added Successfully");
+                System.out.println("User with account number " + acc_no + " added Successfully");
                 return;
             }
             System.out.print("\nEnter account number:");
             String acc_no = sc.nextLine();
             System.out.print("Enter password:");
             String password = sc.nextLine();
-            System.out.println("Choices:\n1.Check Balance\n2.Transfer Money\n3.Add Money\n4.Remove Money\nEnter choice:");
+            System.out.print("Choices:\n1.Check Balance\n2.Transfer Money\n3.Add Money\n4.Remove Money\nEnter choice: ");
             int ch = sc.nextInt();
             switch (ch) {
                 case 1:
@@ -66,19 +66,19 @@ public class Client {
                     System.out.println("New Client time " + client_time.instant().toEpochMilli());
                     double bal = obj_bal.checkBalance(acc_no, password);
                     if (bal == -1) {
-                        System.out.println("\nInvalid credentials");
+                        System.out.println("\nInvalid credentials!");
                         return;
                     } else {
-                        System.out.println("\nBalance: Rs." + bal + "\n");
+                        System.out.println("\nBalance: Rs. " + bal + "\n");
                     }
                     break;
 
                 case 2:
                     sc.nextLine();
-                    System.out.print("Enter account number to credit:");
+                    System.out.print("Enter account number to credit: ");
                     String cred_acc_no = sc.nextLine();
 
-                    System.out.print("Enter amount to transfer:");
+                    System.out.print("Enter amount to transfer: ");
                     double amt = sc.nextDouble();
 
                     client_time = Clock.systemUTC();
@@ -96,17 +96,17 @@ public class Client {
                     System.out.println("New Client time " + client_time.instant().toEpochMilli());
                     boolean status = obj_bal.transfer(acc_no, cred_acc_no, password, amt);
                     if (status) {
-                        System.out.println("\nTransfer Successful");
+                        System.out.println("\nTransfer Successful!");
                         System.out.println("New Balance:" + obj_bal.checkBalance(acc_no, password));
                     } else {
-                        System.out.println("\nError occured");
+                        System.out.println("\nAn error occurred");
                     }
                     break;
 
                 case 3:
                     sc.nextLine();
 
-                    System.out.print("Enter amount to Add:");
+                    System.out.print("Enter amount to Add: ");
                     double amt_add = sc.nextDouble();
 
                     client_time = Clock.systemUTC();
@@ -124,16 +124,16 @@ public class Client {
                     System.out.println("New Client time " + client_time.instant().toEpochMilli());
                     boolean status_add = obj_bal.AddBalance(acc_no, password, amt_add);
                     if (status_add) {
-                        System.out.println("\nAdded Successfully");
+                        System.out.println("\nMoney added successfully!");
                         System.out.println("New Balance:" + obj_bal.checkBalance(acc_no, password));
                     } else {
-                        System.out.println("\nError occured");
+                        System.out.println("\nAn error occurred");
                     }
                     break;
                 case 4:
                     sc.nextLine();
 
-                    System.out.print("Enter amount to Deduct:");
+                    System.out.print("Enter amount to Deduct: ");
                     double amt_deduce = sc.nextDouble();
 
                     client_time = Clock.systemUTC();
@@ -151,10 +151,10 @@ public class Client {
                     System.out.println("New Client time " + client_time.instant().toEpochMilli());
                     boolean status_remove = obj_bal.RemoveBalance(acc_no, password, amt_deduce);
                     if (status_remove) {
-                        System.out.println("\nRemoved Successfully");
+                        System.out.println("\nMoney removed successfully!");
                         System.out.println("New Balance:" + obj_bal.checkBalance(acc_no, password));
                     } else {
-                        System.out.println("\nError occured");
+                        System.out.println("\nAn error occurred");
                     }
                     break;
                 default:

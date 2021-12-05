@@ -17,7 +17,7 @@ public class Server extends UnicastRemoteObject implements checkBal {
             TokenInterface token = (TokenInterface) reg.lookup("tokenServer");
             this.token = token;
         } catch (Exception e) {
-            System.out.println("Exception occurred : " + e.getMessage());
+            System.out.println("Exception occurred: " + e.getMessage());
         }
     }
 
@@ -84,8 +84,8 @@ public class Server extends UnicastRemoteObject implements checkBal {
     }
 
     public boolean transfer(String d_acc_no, String cred_acc_no, String password, double amt) throws RemoteException {
-        System.out.println("Transfer request received for account number " + d_acc_no);
-        System.out.println("Transfer to credit account number " + cred_acc_no);
+        System.out.println("Transfer request received for account number: " + d_acc_no);
+        System.out.println("Transfer to credit account number: " + cred_acc_no);
         boolean isValid = false;
 
         try{
@@ -134,8 +134,8 @@ public class Server extends UnicastRemoteObject implements checkBal {
 
     }
     public boolean AddBalance(String d_acc_no, String password, double amt) throws RemoteException {
-        System.out.println("Add balance request received for account number " + d_acc_no);
-        System.out.println("Balance to be  to  added " + d_acc_no);
+        System.out.println("Add balance request received for account number: " + d_acc_no);
+        System.out.println("Balance to be  to  added: " + d_acc_no);
         boolean isValid = false;
 
         try{
@@ -185,8 +185,8 @@ public class Server extends UnicastRemoteObject implements checkBal {
     }
 
     public boolean RemoveBalance(String d_acc_no, String password, double amt) throws RemoteException {
-        System.out.println("Remove balance request received for account number " + d_acc_no);
-        System.out.println("Balance to be  to  added " + d_acc_no);
+        System.out.println("Remove balance request received for account number: " + d_acc_no);
+        System.out.println("Balance to be  to  added: " + d_acc_no);
         boolean isValid = false;
 
         try{
